@@ -4,27 +4,46 @@
 />
 <div class="gallery">
   <h1>{{ title }}</h1>
-  <div *ngIf="imgList.length > 0">
-    <img [src]="imgList[current]" alt="Girl in a jacket" />
-    <div class="button-bar">
-      <button [disabled]="current == 0" (click)="change_current(0)">
-        <span class="material-icons"> first_page </span>
-      </button>
-      <button [disabled]="current == 0" (click)="previous()">
-        <span class="material-icons"> arrow_back_ios </span>
-      </button>
-      <button [disabled]="current == imgList.length - 1" (click)="next()">
-        <span class="material-icons"> arrow_forward_ios </span>
-      </button>
-      <button
-        [disabled]="current == imgList.length - 1"
-        (click)="change_current(imgList.length - 1)"
-      >
-        <span class="material-icons"> last_page </span>
-      </button>
+  <section>
+    <div class="images" *ngIf="imgList.length > 0">
+      <img [src]="imgList[current]" alt="Girl in a jacket" />
     </div>
-    <!-- <img  class="image" [src]="imgList[current]"
+  </section>
+  <!-- <img  class="image" [src]="imgList[current]"
       onerror="this.src='./app/assets/images/placeholder.jpg';" /> -->
+  <div class="button-bar">
+    <button
+      mat-button
+      color="primary"
+      [disabled]="current == 0"
+      (click)="change_current(0)"
+    >
+      <span class="material-icons"> first_page </span>
+    </button>
+    <button
+      mat-button
+      color="primary"
+      [disabled]="current == 0"
+      (click)="previous()"
+    >
+      <span class="material-icons"> arrow_back_ios </span>
+    </button>
+    <button
+      mat-button
+      color="primary"
+      [disabled]="current == imgList.length - 1"
+      (click)="next()"
+    >
+      <span class="material-icons"> arrow_forward_ios </span>
+    </button>
+    <button
+      mat-button
+      color="primary"
+      [disabled]="current == imgList.length - 1"
+      (click)="change_current(imgList.length - 1)"
+    >
+      <span class="material-icons"> last_page </span>
+    </button>
   </div>
   <div class="medium" *ngIf="imgList.length == 0">
     <span class="material-icons darkgrey medium">insert_photo</span>
